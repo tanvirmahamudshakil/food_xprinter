@@ -405,7 +405,7 @@ class printerservice(mcontext: Context, morderModel: OrderData, businessdata: Bu
 
                  }else{
                      if(businessdatadata.printerStyle == "3") {
-                         bind.orderType.text =  "${getOrderType()} ${orderModel.property?.requestedDeliveryTimestampType}"
+                         bind.orderType.text =  "${getOrderType()}"
                          bind.orderType.setTextSize(TypedValue.COMPLEX_UNIT_SP, header2.toFloat())
                      }else{
                          bind.orderType.text =  getOrderType()
