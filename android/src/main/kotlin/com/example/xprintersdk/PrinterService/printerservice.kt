@@ -428,9 +428,7 @@ class printerservice(mcontext: Context, morderModel: OrderData, businessdata: Bu
                         bind.collectionAt.text = asapdata
                         bind.collectionAt.setTypeface(null, Typeface.BOLD)
                         bind.collectionAt.setTextSize(TypedValue.COMPLEX_UNIT_SP, businessdatadata.asapFontSize!!.toFloat())
-
                     }
-
 
                 }else{
                     bind.collectionAt.text = "REQUESTED at : ${requestformatter.format(parser.parse(orderModel.requestedDeliveryTimestamp))}"
