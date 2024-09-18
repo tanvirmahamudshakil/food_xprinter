@@ -404,8 +404,14 @@ class printerservice(mcontext: Context, morderModel: OrderData, businessdata: Bu
                      }
 
                  }else{
-                     bind.orderType.text =  getOrderType()
-                     bind.orderType.setTextSize(TypedValue.COMPLEX_UNIT_SP, header2.toFloat())
+                     if(businessdatadata.printerStyle == "3") {
+                         bind.orderType.text =  "${getOrderType()} ${orderModel.property?.requestedDeliveryTimestampType}"
+                         bind.orderType.setTextSize(TypedValue.COMPLEX_UNIT_SP, header2.toFloat())
+                     }else{
+                         bind.orderType.text =  getOrderType()
+                         bind.orderType.setTextSize(TypedValue.COMPLEX_UNIT_SP, header2.toFloat())
+                     }
+
                  }
 
 
@@ -431,8 +437,15 @@ class printerservice(mcontext: Context, morderModel: OrderData, businessdata: Bu
                     }
 
                 }else{
-                    bind.collectionAt.text = "REQUESTED at : ${formatter.format(parser.parse(orderModel.requestedDeliveryTimestamp))}"
-                    bind.collectionAt.setTextSize(TypedValue.COMPLEX_UNIT_SP, header2.toFloat())
+                    if(businessdatadata.printerStyle == "3") {
+                        bind.collectionAt.setTypeface(null, Typeface.BOLD)
+                        bind.collectionAt.text = "REQUESTED at : ${requestformatter.format(parser.parse(orderModel.requestedDeliveryTimestamp))} ${asapdata}"
+                        bind.collectionAt.setTextSize(TypedValue.COMPLEX_UNIT_SP, header2.toFloat())
+                    }else{
+                        bind.collectionAt.text = "REQUESTED at : ${formatter.format(parser.parse(orderModel.requestedDeliveryTimestamp))}"
+                        bind.collectionAt.setTextSize(TypedValue.COMPLEX_UNIT_SP, header2.toFloat())
+                    }
+
                 }
 
             }
