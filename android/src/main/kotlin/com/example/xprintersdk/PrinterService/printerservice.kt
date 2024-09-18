@@ -214,7 +214,6 @@ class printerservice(mcontext: Context, morderModel: OrderData, businessdata: Bu
                     }else{
                         str3.append(" -> ").append(_comName)
                     }
-
                 }
                 price += section?.netAmount ?: 0.0;
             }
@@ -379,6 +378,7 @@ class printerservice(mcontext: Context, morderModel: OrderData, businessdata: Bu
 
              val parser = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
              val formatter = SimpleDateFormat("dd-MMM hh:mm a")
+             val requestformatter = SimpleDateFormat("HH:mm")
              val formatter2 = SimpleDateFormat(" dd/MM hh:mm a")
 //             Log.e("date formet", "doInBackground: ${dateDifferent(orderModel.orderDate!!, orderModel.requestedDeliveryTimestamp!!)}", )
 //             Log.d("order date", "orderrootget: ${orderModel.orderDate}")
@@ -394,8 +394,14 @@ class printerservice(mcontext: Context, morderModel: OrderData, businessdata: Bu
                  bind.orderType.text = "TABLE BOOKING #${orderModel.table_id}"
                  bind.orderType.setTextSize(TypedValue.COMPLEX_UNIT_SP, header2.toFloat())
              }else{
-                 bind.orderType.text =  getOrderType()
-                 bind.orderType.setTextSize(TypedValue.COMPLEX_UNIT_SP, header2.toFloat())
+                 if(orderModel.property?.requestedDeliveryTimestampType != null) {
+                     bind.orderType.text =  "${getOrderType()} ${orderModel.property?.requestedDeliveryTimestampType}"
+                     bind.orderType.setTextSize(TypedValue.COMPLEX_UNIT_SP, header2.toFloat())
+                 }else{
+                     bind.orderType.text =  getOrderType()
+                     bind.orderType.setTextSize(TypedValue.COMPLEX_UNIT_SP, header2.toFloat())
+                 }
+
 
              }
 
@@ -408,12 +414,15 @@ class printerservice(mcontext: Context, morderModel: OrderData, businessdata: Bu
             }else{
                 if(orderModel.property?.requestedDeliveryTimestampType != null) {
                     var asapdata = orderModel.property?.requestedDeliveryTimestampType;
-                    bind.collectionAt.text = asapdata
+//                    bind.collectionAt.text = asapdata
+//                    bind.collectionAt.setTypeface(null, Typeface.BOLD)
+//                    bind.collectionAt.setTextSize(TypedValue.COMPLEX_UNIT_SP, businessdatadata.asapFontSize!!.toFloat())
                     bind.collectionAt.setTypeface(null, Typeface.BOLD)
-                    bind.collectionAt.setTextSize(TypedValue.COMPLEX_UNIT_SP, businessdatadata.asapFontSize!!.toFloat())
+                    bind.collectionAt.text = "REQUESTED at : ${requestformatter.format(parser.parse(orderModel.requestedDeliveryTimestamp))} ${asapdata}"
+                    bind.collectionAt.setTextSize(TypedValue.COMPLEX_UNIT_SP, header2.toFloat())
 
                 }else{
-                    bind.collectionAt.text = "REQUESTED at : ${formatter.format(parser.parse(orderModel.requestedDeliveryTimestamp))}"
+                    bind.collectionAt.text = "REQUESTED at : ${requestformatter.format(parser.parse(orderModel.requestedDeliveryTimestamp))}"
                     bind.collectionAt.setTextSize(TypedValue.COMPLEX_UNIT_SP, header2.toFloat())
                 }
 
