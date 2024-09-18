@@ -431,7 +431,7 @@ class printerservice(mcontext: Context, morderModel: OrderData, businessdata: Bu
                     }
 
                 }else{
-                    bind.collectionAt.text = "REQUESTED at : ${requestformatter.format(parser.parse(orderModel.requestedDeliveryTimestamp))}"
+                    bind.collectionAt.text = "REQUESTED at : ${formatter.format(parser.parse(orderModel.requestedDeliveryTimestamp))}"
                     bind.collectionAt.setTextSize(TypedValue.COMPLEX_UNIT_SP, header2.toFloat())
                 }
 
