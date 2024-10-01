@@ -69,7 +69,9 @@ data class BusinessSetting(
     @SerializedName("header4Size")
     var header4Size: Int?,
     @SerializedName("footervatFontSize")
-    var footervatFontSize : Int?
+    var footervatFontSize : Int?,
+    @SerializedName("propertyshop")
+    var propertyShop : Boolean?
 
 
 

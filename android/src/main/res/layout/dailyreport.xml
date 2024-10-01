@@ -404,6 +404,42 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
         </RelativeLayout>
+
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/propertyDotted"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:src="@drawable/dotted"
+            android:contentDescription="Dotted" />
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/propertyContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/propertyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Return:"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/propertyValue"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:gravity="end"
+                android:text="5"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </RelativeLayout>
     </LinearLayout>
 
 </LinearLayout>

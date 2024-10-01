@@ -281,6 +281,18 @@ class DailyReportPage(mcontext: Context, report: Dailyreport, businessdata: Busi
         binding.totalBalanceBox.setTextSize(TypedValue.COMPLEX_UNIT_SP, businessdatadata.fontSize?.toFloat() ?: 16f)
         binding.totalBalance.setTextSize(TypedValue.COMPLEX_UNIT_SP, businessdatadata.fontSize?.toFloat() ?: 16f)
 
+        // total return
+
+        if(businessdatadata.propertyShop == true) {
+            binding.propertyDotted.visibility = View.VISIBLE
+            binding.propertyContainer.visibility = View.VISIBLE
+            binding.propertyValue.text = dailyreport.data?.totalReturn ?: "0"
+            binding.propertyValue.setTextSize(TypedValue.COMPLEX_UNIT_SP, businessdatadata.fontSize?.toFloat() ?: 16f)
+            binding.propertyName.setTextSize(TypedValue.COMPLEX_UNIT_SP, businessdatadata.fontSize?.toFloat() ?: 16f)
+        }
+
+
+
         val bitmaplist: Bitmap =  getBitmapFromView(binding.root)
         return  bitmaplist;
 
