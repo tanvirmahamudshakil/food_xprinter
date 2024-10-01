@@ -148,4 +148,6 @@ class PrinterBusinessModel {
         "footervatFontSize": footervatFontSize,
         "propertyshop": propertyshop
       };
+
+      
 }
