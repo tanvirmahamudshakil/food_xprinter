@@ -41,8 +41,7 @@ import kotlin.math.roundToInt
 
 
 class printerservice(mcontext: Context, morderModel: OrderData, businessdata: BusinessSetting, mserviceBinding: Xprinter, mresult: MethodChannel.Result, sunmiHelper : SunmiHelp, saveImage: Boolean, nyxp : NyxprinterHelp) :
-    AsyncTask<String, Int, Bitmap>()
-     {
+    AsyncTask<String, Int, Bitmap>() {
 
     private var context: Context
     private  var orderModel: OrderData
@@ -59,10 +58,10 @@ class printerservice(mcontext: Context, morderModel: OrderData, businessdata: Bu
     private var bitmapSave: Boolean
     private var nyxprinter : NyxprinterHelp
     private var header1 : Int = 22
-         private var header2 : Int = 22
-         private var header3 : Int = 22
-         private var header4 : Int = 22
-         private var footervatFontSize : Int = 15
+    private var header2 : Int = 22
+    private var header3 : Int = 22
+    private var header4 : Int = 22
+    private var footervatFontSize : Int = 15
 
 
     init {
@@ -166,7 +165,7 @@ class printerservice(mcontext: Context, morderModel: OrderData, businessdata: Bu
              }
          }
 
-    fun getView( listorderProducts: List<OrderData.OrderProduct?>?, item: OrderData.OrderProduct?, iteamLength : Int ,position: Int, mCtx: Context?, style: Int, fontSize: Int): View? {
+    fun getView(listorderProducts: List<OrderData.OrderProduct?>?, item: OrderData.OrderProduct?, iteamLength : Int ,position: Int, mCtx: Context?, style: Int, fontSize: Int): View? {
         val binding: ModelPrint2Binding = ModelPrint2Binding.inflate(LayoutInflater.from(mCtx))
         var  component: List<OrderData.OrderProduct.Component?>?
         var  extraIteam: List<OrderData.OrderProduct.Component?>? = ArrayList()
