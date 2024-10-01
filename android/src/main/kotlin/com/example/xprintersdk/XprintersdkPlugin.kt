@@ -89,7 +89,7 @@ class XprintersdkPlugin: FlutterPlugin, MethodCallHandler {
     } else if (call.method == dailyreportPrint) {
       dailyReportPrint(call, result)
     } else if (call.method == propertyReturnPrint) {
-
+      propertyReturnPrint(call, result)
     }
     else {
       result.notImplemented()
