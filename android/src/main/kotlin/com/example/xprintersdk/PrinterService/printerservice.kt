@@ -377,7 +377,7 @@ class printerservice(mcontext: Context, morderModel: OrderData, businessdata: Bu
                  bind.businessName.text = "Redmango Online"
                  bind.businessName.setTextSize(TypedValue.COMPLEX_UNIT_SP, header1.toFloat())
                  bind.businessLocation.text = "(${businessname})"
-                 bind.businessLocation.setTextSize(TypedValue.COMPLEX_UNIT_SP, (header1.toFloat()-10))
+                 bind.businessLocation.setTextSize(TypedValue.COMPLEX_UNIT_SP, (header1.toFloat()-5))
              }else{
                  bind.businessName.text = businessname
                  bind.businessName.setTextSize(TypedValue.COMPLEX_UNIT_SP, header1.toFloat())
