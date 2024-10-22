@@ -376,7 +376,7 @@ class printerservice(mcontext: Context, morderModel: OrderData, businessdata: Bu
              if(orderModel.orderChannel?.uppercase() == "ONLINE") {
                  bind.businessName.text = "Redmango Online"
                  bind.businessName.setTextSize(TypedValue.COMPLEX_UNIT_SP, header1.toFloat())
-                 bind.businessLocation.text = "(businessname)"
+                 bind.businessLocation.text = "(${businessname})"
                  bind.businessLocation.setTextSize(TypedValue.COMPLEX_UNIT_SP, header1.toFloat())
              }else{
                  bind.businessName.text = businessname
