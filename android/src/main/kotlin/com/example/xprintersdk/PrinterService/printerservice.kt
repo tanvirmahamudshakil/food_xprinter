@@ -371,9 +371,20 @@ class printerservice(mcontext: Context, morderModel: OrderData, businessdata: Bu
 
              val printSize: Int = fontsize
 
+
              val bind: OnlinePrint2Binding = OnlinePrint2Binding.inflate(LayoutInflater.from(context))
-             bind.businessName.text = businessname
-             bind.businessName.setTextSize(TypedValue.COMPLEX_UNIT_SP, header1.toFloat())
+             if(orderModel.orderChannel?.uppercase() == "ONLINE") {
+                 bind.businessName.text = "Redmango Online"
+                 bind.businessName.setTextSize(TypedValue.COMPLEX_UNIT_SP, header1.toFloat())
+                 bind.businessLocation.text = "(businessname)"
+                 bind.businessLocation.setTextSize(TypedValue.COMPLEX_UNIT_SP, header1.toFloat())
+             }else{
+                 bind.businessName.text = businessname
+                 bind.businessName.setTextSize(TypedValue.COMPLEX_UNIT_SP, header1.toFloat())
+                 bind.businessLocation.text = businessaddress
+                 bind.businessLocation.setTextSize(TypedValue.COMPLEX_UNIT_SP, header1.toFloat())
+             }
+
 
              val parser = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
              val formatter = SimpleDateFormat("dd-MMM hh:mm a")
@@ -382,8 +393,7 @@ class printerservice(mcontext: Context, morderModel: OrderData, businessdata: Bu
 //             Log.e("date formet", "doInBackground: ${dateDifferent(orderModel.orderDate!!, orderModel.requestedDeliveryTimestamp!!)}", )
 //             Log.d("order date", "orderrootget: ${orderModel.orderDate}")
              var addedDeliveryCharge = 0.0
-             bind.businessLocation.text = businessaddress
-             bind.businessLocation.setTextSize(TypedValue.COMPLEX_UNIT_SP, header1.toFloat())
+
              bind.businessPhone.text = businessphone
              bind.businessPhone.setTextSize(TypedValue.COMPLEX_UNIT_SP, header1.toFloat())
              bind.branchName.text = orderModel.branch?.name?.uppercase()
